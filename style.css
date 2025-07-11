@@ -1,0 +1,171 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0b0c0c;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.outer-glow-wrapper {
+    position: relative;
+    padding: 2px;
+    border-radius: 12px;
+    background: transparent;
+    box-shadow:
+        0 0 40px rgba(0, 204, 255, 0.8),
+        0 0 80px rgba(0, 204, 255, 0.5),
+        0 0 120px rgba(0, 204, 255, 0.3);
+}
+
+.panel-container {
+    position: relative;
+    width: 850px;
+    height: 480px;
+    background-color: #050505;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #e0f7fa;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 10px rgba(0, 204, 255, 0.4);
+}
+
+.frame-top, .frame-bottom, .frame-left, .frame-right {
+    position: absolute;
+    background-color: #00c4ff;
+    box-shadow: 0 0 15px #00c4ff, inset 0 0 5px #00c4ff;
+    z-index: 10;
+}
+
+.frame-top, .frame-bottom {
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+.frame-top { top: 0; }
+.frame-bottom { bottom: 0; }
+
+.frame-left, .frame-right {
+    top: 0;
+    bottom: 0;
+    width: 4px;
+}
+.frame-left { left: 0; }
+.frame-right { right: 0; }
+
+.frame-corner-tl, .frame-corner-br {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #00c4ff;
+    box-shadow: 0 0 15px #00c4ff, inset 0 0 5px #00c4ff;
+    z-index: 11;
+}
+
+.frame-corner-tl {
+    top: -2px;
+    left: -2px;
+    transform: rotate(45deg);
+    transform-origin: 0 0;
+    width: 40px;
+    height: 4px;
+    background: linear-gradient(to right, #00c4ff, rgba(0, 204, 255, 0));
+}
+.frame-corner-br {
+    bottom: -2px;
+    right: -2px;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    width: 40px;
+    height: 4px;
+    background: linear-gradient(to left, #00c4ff, rgba(0, 204, 255, 0));
+}
+
+.cracked-glass-overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.15;
+    background:
+        radial-gradient(circle at 30% 70%, rgba(0,255,255,0.2) 0%, transparent 10%),
+        radial-gradient(circle at 70% 30%, rgba(0,255,255,0.2) 0%, transparent 10%),
+        linear-gradient(45deg, transparent 48%, rgba(0,255,255,0.1) 49%, rgba(0,255,255,0.1) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(0,255,255,0.1) 49%, rgba(0,255,255,0.1) 51%, transparent 52%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.content-area {
+    position: relative;
+    z-index: 15;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.notification-header {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    color: #00eaff;
+    text-shadow: 0 0 12px #00eaff, 0 0 25px #00eaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.exclamation-icon {
+    font-size: 1.8em;
+    margin-right: 20px;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px rgba(255, 204, 0, 0.5);
+    line-height: 1;
+}
+
+.message-item {
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    padding-left: 40px;
+    position: relative;
+    color: #b3f0ff;
+    display: flex;
+    align-items: center;
+}
+
+.message-item::before {
+    content: '•';
+    position: absolute;
+    left: 10px;
+    color: #00c4ff;
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+.message-item span {
+    color: #e0f7fa;
+}
+
+.checkbox {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 3px solid #00c4ff;
+    background-color: transparent;
+    vertical-align: middle;
+    margin-left: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #00c4ff, inset 0 0 4px #00c4ff;
+}
